@@ -21,10 +21,11 @@ services:
 
     composer:
         image: artelworkshop/composer:php8.3
+        container_name: spotler-composer
         working_dir: /app
         volumes:
             - ./:/app
-        command: composer install
+        command: sh -c "composer install && tail -f /dev/null"
 
     node:
         image: node:19
