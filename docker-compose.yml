@@ -1,0 +1,35 @@
+services:
+    php:
+        image: php:8.3.8-fpm
+        container_name: spotler-php
+        working_dir: /app
+        volumes:
+            - ./:/app
+
+    nginx:
+        image: nginx:alpine
+        container_name: spotler-nginx
+        ports:
+            - 80:80
+        volumes:
+            - ./:/app
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        links:
+            - php
+        depends_on:
+            - php
+
+    composer:
+        image: artelworkshop/composer:php8.3
+        working_dir: /app
+        volumes:
+            - ./:/app
+        command: composer install
+
+    node:
+        image: node:19
+        container_name: spotler-node
+        working_dir: /app
+        volumes:
+            - ./:/app
+        command: bash -c "npm i && npm run watch"
