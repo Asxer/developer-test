@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Accounts\StoreContactRequest;
-use App\Http\Requests\Accounts\UpdateContactRequest;
+use App\Http\Requests\Accounts\StoreAccountRequest;
+use App\Http\Requests\Accounts\UpdateAccountRequest;
 use App\Models\Account;
 use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
@@ -34,7 +34,7 @@ class AccountController extends Controller
         ]);
     }
 
-    public function store(StoreContactRequest $request)
+    public function store(StoreAccountRequest $request)
     {
         Account::create($request->validated());
 
@@ -49,7 +49,7 @@ class AccountController extends Controller
         ]);
     }
 
-    public function update(UpdateContactRequest $request, Account $account)
+    public function update(UpdateAccountRequest $request, Account $account)
     {
         $account->fill($request->validated());
         $account->save();
