@@ -42,7 +42,7 @@ defineProps({ accounts: Array })
                                         <Link :href="route('accounts.show', account.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">View</Link>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <InertiaLink :href="route('accounts.edit', account.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">Edit</InertiaLink>
+                                        <Link :href="route('accounts.edit', account.id)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">Edit</Link>
                                     </td>
                                 </tr>
                                 </tbody>

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\Accounts\UpdateAccountRequest;
 use App\Models\Account;
+use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class AccountController extends Controller
@@ -35,13 +38,17 @@ class AccountController extends Controller
     public function edit(Account $account)
     {
         return Inertia::render('Accounts/Edit', [
-            'account' => $account
+            'account' => $account,
+            'users' => User::all() // good enough for the test task, terrible for production solution
         ]);
     }
 
-    public function update()
+    public function update(UpdateAccountRequest $request, Account $account)
     {
+        $account->fill($request->validated());
+        $account->save();
 
+        return Redirect::route('accounts.index');
     }
 
     public function destroy()
