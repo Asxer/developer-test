@@ -9,13 +9,13 @@ class UpdateAccountRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string|required',
-            'owner_id' => 'numeric|required|exists:users,id',
-            'phone' => 'required',
-            'country' => 'string|required',
-            'address' => 'string|required',
-            'town_city' => 'string|required',
-            'post_code' => 'required',
+            'name' => 'string',
+            'owner_id' => 'numeric|exists:users,id',
+            'phone' => 'string',
+            'country' => 'string',
+            'address' => 'string',
+            'town_city' => 'string',
+            'post_code' => 'string',
         ];
     }
 }
