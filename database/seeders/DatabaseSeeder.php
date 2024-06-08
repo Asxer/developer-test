@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
                     ->has(
                         Contact::factory()
                         ->count(5)
-                    )
+                    ),
+                'accounts'
             )
             ->create();
     }
