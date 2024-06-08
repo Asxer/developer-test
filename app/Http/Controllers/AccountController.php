@@ -51,8 +51,10 @@ class AccountController extends Controller
         return Redirect::route('accounts.index');
     }
 
-    public function destroy()
+    public function destroy(Account $account)
     {
+        $account->deleteOrFail();
 
+        return Redirect::route('accounts.index');
     }
 }

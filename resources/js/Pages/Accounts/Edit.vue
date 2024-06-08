@@ -24,6 +24,12 @@ function submit() {
         onError: (errors) => form.errors = errors
     })
 }
+
+function deleteAccount() {
+    router.delete(`/accounts/${props.account.id}`, {
+        onError: (errors) => form.errors = errors
+    })
+}
 </script>
 
 <template>
@@ -122,6 +128,7 @@ function submit() {
                             </div>
                             <div class="flex justify-between mt-6">
                                 <button
+                                    @click="deleteAccount()"
                                     type="button"
                                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                 >
