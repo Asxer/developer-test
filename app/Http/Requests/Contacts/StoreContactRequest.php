@@ -11,7 +11,7 @@ class StoreContactRequest extends FormRequest
         return [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'required|string',
+            'email' => 'required|string|email',
             'phone' => 'required|string',
             'position' => 'required|string',
             'account_id' => 'required|numeric|exists:accounts,id',

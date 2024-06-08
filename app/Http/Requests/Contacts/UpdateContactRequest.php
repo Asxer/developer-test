@@ -11,7 +11,7 @@ class UpdateContactRequest extends FormRequest
         return [
             'first_name' => 'string',
             'last_name' => 'string',
-            'email' => 'string',
+            'email' => 'string|email',
             'phone' => 'string',
             'position' => 'string',
             'account_id' => 'numeric|exists:accounts,id',
