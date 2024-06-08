@@ -21,7 +21,9 @@ class AccountController extends Controller
     public function show(Account $account)
     {
         return Inertia::render('Accounts/Show', [
-            'account' => $account->load(['contacts', 'owner'])
+            'account' => $account,
+            'owner' => $account->owner,
+            'contacts' => $account->contacts
         ]);
     }
 

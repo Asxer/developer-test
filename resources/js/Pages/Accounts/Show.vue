@@ -3,9 +3,13 @@ import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Link, Head } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
-const props = defineProps({ account: Object })
+const props = defineProps({
+    account: Object,
+    owner: Object,
+    contacts: Array
+})
 
-const ownerName = computed(() => props.account.owner ? props.account.owner.name : '-')
+const ownerName = computed(() => props.owner ? props.owner.name : '-')
 </script>
 
 <template>
