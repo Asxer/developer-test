@@ -8,8 +8,6 @@ class UpdateAccountRequest extends FormRequest
 {
     public function rules()
     {
-        logger($this->all());
-
         return [
             'name' => 'string|required',
             'owner_id' => 'numeric|required|exists:users,id',

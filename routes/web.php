@@ -41,7 +41,8 @@ Route::middleware('auth:web')->group(function () {
     Route::get('accounts/{account}/edit', [AccountController::class, 'edit'])
         ->name('accounts.edit');
     Route::get('accounts/{account}', [AccountController::class, 'show'])
-        ->name('accounts.show');
+        ->name('accounts.show')
+        ->where('account', '[0-9]+');
     Route::put('accounts/{account}', [AccountController::class, 'update'])
         ->name('accounts.update');
     Route::delete('accounts/{account}', [AccountController::class, 'destroy'])
